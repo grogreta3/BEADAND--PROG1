@@ -28,7 +28,7 @@ def penz(n):
 
 def hanyszor_fut():
     db = int(input("adj meg egy szamot hanyszor fusson a program:"))
-    li=input("add meg a szamokat vesszővel elválasztva:").split(",")
+    li=input("add meg a {} szamot vesszővel elválasztva:".format(db)).split(",")
 
     for i in li:
         penz(int(i))
