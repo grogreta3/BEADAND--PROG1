@@ -1,17 +1,16 @@
 li1=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-#for i in range(len(li2)):
-#    print(i+1)
+
 # alma pohar ablak
 
 def nagy(szo):
     elso =0
-    mas = 0
+    ut = 0
     for i in range(len(li1)):
         if szo[0]==li1[i]:
             elso+=i+1
         if szo[1]==li1[i]:
-            mas+=i+1
-    return abs(int(elso) - int(mas))
+            ut+=i+1
+    return abs(int(elso) - int(ut))
 
 
 def betuk(szo):
@@ -24,14 +23,23 @@ def betuk(szo):
             li.append(szo[-2])
     else:
         li.append(szo[-1])
+    print(li)
     return nagy(li)
 
 
+def main():
+    szavak=input('adj meg három szót szóközzlel elválasztva:').split(' ')
+    print(szavak)
+    li3=[]
+    for i in szavak:
+        li3.append(betuk(i))
+    print(li3)
+    legnagyobb=max(li3)
+    print(legnagyobb)
 
-szavak=input('adj meg három szót szóközzlel elválasztva:').split(' ')
-print(szavak)
-li3=[]
-for i in szavak:
-    li3.append(betuk(i))
-print(li3)
-print(max(li3))
+    for i in range(len(li3)):
+        if li3[i]==legnagyobb:
+            print(szavak[i])
+
+main()
+
