@@ -23,7 +23,6 @@ def betuk(szo):
             li.append(szo[-2])
     else:
         li.append(szo[-1])
-    print(li)
     return nagy(li)
 
 
