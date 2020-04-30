@@ -28,7 +28,7 @@ def hanyszor_fut():
     db = int(input("adj meg egy szamot hanyszor fusson a program:"))
     while db!=0:
         penz()
-        b-=1
+        db-=1
 
 
 print(hanyszor_fut())
