@@ -31,5 +31,4 @@ def hanyszor_fut():
         db-=1
 
 
-print(hanyszor_fut())
 
