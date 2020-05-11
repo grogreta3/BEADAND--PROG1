@@ -32,3 +32,4 @@ def hanyszor_fut():
 
 
 
+print(hanyszor_fut())
