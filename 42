@@ -1,7 +1,7 @@
 import numpy as np
 
 idx=0
-print('LEÍRÁS: a játékban ki kell találnod hogy melyik számot dobta a gép!' +'\n'
+print('LEÍRÁS: A játékban ki kell találnod hogy melyik számot dobta a gép!' +'\n'
       'Alapból 10 lehetőséged van eltalálni a számot' + '\n'
       'A Score menüben pedig megtudod nézni az eddig megnyert játékaid számát!' + '\n'
       'JÓ SZÓRAKOZÁST!')
