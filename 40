@@ -1,0 +1,70 @@
+import numpy as np
+
+idx=0
+
+def jatek(szam=10):
+    k=int(idx)
+    a=np.random.randint(1,101,1)
+    #print(a)
+    b = False
+    tipp=int(input('Add meg a tipped:'))
+    while szam != 1 and b != True:
+        if tipp>a:
+            print('A szám kisebb a tippnél')
+            tipp = int(input('\n '+'Add meg a tipped:'))
+            szam-=1
+        elif tipp<a:
+            print('a szám nagyobb a tippnél')
+            tipp = int(input('\n'+'Add meg a tipped:'))
+            szam-=1
+        elif tipp == a:
+            print('\n '+"ELTALÁLTAD")
+            d=open('outfile','w')
+            k+=1
+            print(k,file=d)
+            b = True
+            d.close()
+    if b == False and szam ==1:
+        print ('\n '+'NEM TALTAD EL')
+
+
+def difficulty():
+    a=input('Add meg a jatek nehezseget'+ '\n '+'   Easy=E (10 lehetőség)'+ '\n' + '    Medium=M (8 lehetőség)' + '\n' + '    Hard=H (5 lehetőség) :'+ '\n ')
+    if a =='E' or a == 'e':
+        return 10
+    elif a == 'M' or a == 'm':
+        return 8
+    elif a == 'H' or a == 'h':
+        return 5
+
+
+# New Game, Difficulty, Quit, Score
+def menu():
+    menu=input('\n '+'MENÜ:'+'\n '+ '     New Game = N,n'+ '\n '+ '     Difficulty = D,d'+ '\n '+ '     Score = S,s'+ '\n '+ '     Quit = Q,q:'+ '\n ')
+    if menu == 'N' or menu == 'n':
+        jatek()
+
+    if menu == 'D' or menu == 'd':
+        d=difficulty()
+        jatek(d)
+
+    if menu == 'Q' or menu == 'q':
+        d = open('outfile', 'w')
+        print(0,file=d)
+        d.close()
+        print('Köszi a játékot!')
+        exit()
+
+    if menu == 'S' or menu == 's':
+        d=open('outfile','r')
+        for i in d:
+            print('\n '+'Eddig megnyert játszmáid száma: '+ i)
+        d.close()
+
+
+while True:
+    d=open('outfile','+r')
+    for i in d:
+        idx=i
+        menu()
+    d.close()
