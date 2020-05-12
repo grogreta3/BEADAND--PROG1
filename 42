@@ -1,74 +1,40 @@
-import numpy as np
+li1=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
-idx=0
-print('LEÍRÁS: A játékban ki kell találnod hogy melyik számot dobta a gép!' +'\n'
-      'Alapból 10 lehetőséged van eltalálni a számot' + '\n'
-      'A Score menüben pedig megtudod nézni az eddig megnyert játékaid számát!' + '\n'
-      'JÓ SZÓRAKOZÁST!')
+# alma pohar ablak
 
-def jatek(szam=10):
-    k=int(idx)
-    a=np.random.randint(1,101,1)
-    #print(a)
-    b = False
-    tipp=int(input('Add meg a tipped:'))
-    while szam != 1 and b != True:
-        if tipp>a:
-            print('A szám kisebb a tippnél')
-            tipp = int(input('Add meg a tipped:'))
-            szam-=1
-        elif tipp<a:
-            print('a szám nagyobb a tippnél')
-            tipp = int(input('Add meg a tipped:'))
-            szam-=1
-        elif tipp == a:
-            print('\n '+"ELTALÁLTAD")
-            d=open('outfile','w')
-            k+=1
-            print(k,file=d)
-            b = True
-            d.close()
-    if b == False and szam ==1:
-        print ('\n '+'NEM TALTAD EL')
+def nagy(li):
+    elso =0
+    ut = 0
+    for i in range(len(li1)):
+        if li[0]==li1[i]:
+            elso+=i+1
+        if li[1]==li1[i]:
+            ut+=i+1
+    return abs(int(elso) - int(ut))
 
 
-def difficulty():
-    a=input('Add meg a jatek nehezseget'+ '\n '+'   Easy=E (10 lehetőség)'+ '\n' + '    Medium=M (8 lehetőség)' + '\n' + '    Hard=H (5 lehetőség) :'+ '\n ')
-    if a =='E' or a == 'e':
-        return 10
-    elif a == 'M' or a == 'm':
-        return 8
-    elif a == 'H' or a == 'h':
-        return 5
+def betuk(szo):
+    li=[]
+    li.append(szo[0])
+    li.append(szo[-1])
+    return nagy(li)
 
 
-# New Game, Difficulty, Quit, Score
-def menu():
-    menu=input('\n '+'MENÜ:'+'\n '+ '     New Game = N,n'+ '\n '+ '     Difficulty = D,d'+ '\n '+ '     Score = S,s'+ '\n '+ '     Quit = Q,q:'+ '\n ')
-    if menu == 'N' or menu == 'n':
-        jatek()
+def main():
+    szavak=input('adj meg három szót szóközzlel elválasztva:').split(' ')
+    if szavak not in li1:
+        print("nem jo formátumot adtál meg!!")
+        szavak = input('adj meg három szót szóközzlel elválasztva:').split(' ')
+    li3=[]
+    for i in szavak:
+        i=i.lower()
+        li3.append(betuk(i))
 
-    if menu == 'D' or menu == 'd':
-        d=difficulty()
-        jatek(d)
-
-    if menu == 'Q' or menu == 'q':
-        d = open('outfile', 'w')
-        print(0,file=d)
-        d.close()
-        print('Köszi a játékot!')
-        exit()
-
-    if menu == 'S' or menu == 's':
-        d=open('outfile','r')
-        for i in d:
-            print('\n '+'Eddig megnyert játszmáid száma: '+ i)
-        d.close()
+    legnagyobb=max(li3)
 
 
-while True:
-    d=open('outfile','+r')
-    for i in d:
-        idx=i
-        menu()
-    d.close()
+    for i in range(len(li3)):
+        if li3[i]==legnagyobb:
+            print('a szavak közül a(z) ' + szavak[i].upper() + ' szó első és utolsó betűje között van a legnagyobb távolság az ABC-ben')
+
+main()
