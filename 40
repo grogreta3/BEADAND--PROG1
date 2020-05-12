@@ -70,7 +70,7 @@ def menu():
         d.close()
 
     if menu not in li:
-        print('Nem jo értéket adtal meg!!')
+        print('Nem jo formátumot adtal meg!!')
 
 
 while True:
