@@ -34,7 +34,7 @@ def jatek(szam=10):
     except ValueError:
         print("Nem számot adtál meg!!")
 
-        
+
 def difficulty():
     a=input('Add meg a jatek nehezseget'+ '\n '+'   Easy=E (10 lehetőség)'+ '\n' + '    Medium=M (8 lehetőség)' + '\n' + '    Hard=H (5 lehetőség) :'+ '\n ')
     if a =='E' or a == 'e':
