@@ -2,7 +2,7 @@ li1=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s'
 
 # alma pohar ablak
 
-def nagy(li):
+def nagy(li):  # távolság a két betű között
     elso =0
     ut = 0
     for i in range(len(li1)):
@@ -10,21 +10,25 @@ def nagy(li):
             elso+=i+1
         if li[1]==li1[i]:
             ut+=i+1
+    #print(elso, ut, abs(int(elso) - int(ut)))
+
     return abs(int(elso) - int(ut))
 
 
-def betuk(szo):
+def betuk(szo):  # megadja az első és utolsó betűt
     li=[]
-    li.append(szo[0])
-    li.append(szo[-1])
+    if szo[0] and szo[-1] not in li1:
+        print("Nem jo formátumot adtál meg!!")
+        exit()
+    else:
+        li.append(szo[0])
+        li.append(szo[-1])
     return nagy(li)
 
 
 def main():
     szavak=input('adj meg három szót szóközzlel elválasztva:').split(' ')
-    if szavak not in li1:
-        print("nem jo formátumot adtál meg!!")
-        szavak = input('adj meg három szót szóközzlel elválasztva:').split(' ')
+
     li3=[]
     for i in szavak:
         i=i.lower()
@@ -35,6 +39,7 @@ def main():
 
     for i in range(len(li3)):
         if li3[i]==legnagyobb:
-            print('a szavak közül a(z) ' + szavak[i].upper() + ' szó első és utolsó betűje között van a legnagyobb távolság az ABC-ben')
+            print('A szavak közül a(z) ' + szavak[i].upper() + ' szó első és utolsó betűje között van a legnagyobb távolság az ABC-ben')
+
 
 main()
