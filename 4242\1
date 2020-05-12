@@ -21,13 +21,11 @@ def betuk(szo):
 
 
 def main():
-    szavak=input('adj meg három szót szóközzlel elválasztva:').split(' ')
+    szavak=input('Adj meg három szót szóközzlel elválasztva:').split(' ')
 
     li3=[]
     for i in szavak:
-        print(i)
         i=i.lower()
-        print(i)
         li3.append(betuk(i))
 
     legnagyobb=max(li3)
@@ -35,6 +33,6 @@ def main():
 
     for i in range(len(li3)):
         if li3[i]==legnagyobb:
-            print('a szavak közül a(z) ' + szavak[i].upper() + ' szó első és utolsó betűje között van a legnagyobb távolság az ABC-ben')
+            print('A szavak közül a(z) ' + szavak[i].upper() + ' szó első és utolsó betűje között van a legnagyobb távolság az ABC-ben')
 
 main()
