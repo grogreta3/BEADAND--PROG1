@@ -27,11 +27,11 @@ def penz(n):
             print('{} db {} Ft'.format(szotar[j],j))
 
 def hanyszor_fut():
-    db = int(input("adj meg egy szamot hanyszor fusson a program:"))
-    li=input("add meg a {} pénzösszeget vesszővel elválasztva:".format(db)).split(",")
+    db = int(input("adja meg hány pénzösszegre szeretné futtatni a programot:"))
+    li=input("adja meg a {} pénzösszeget vesszővel elválasztva:".format(db)).split(",")
 
     for i in li:
         penz(int(i))
 
 
-print(hanyszor_fut())
+hanyszor_fut()
