@@ -18,14 +18,14 @@ def jatek(szam=10):
             tipp = int(input('\n'+'Add meg a tipped:'))
             szam-=1
         elif tipp == a:
-            print('\n '+"ELTALÁLTAD")
+            print('\n '+"ELTALÁLTAD"+'\n ')
             d=open('outfile','w')
             k+=1
             print(k,file=d)
             b = True
             d.close()
     if b == False and szam ==1:
-        print ('\n '+'NEM TALTAD EL')
+        print ('\n '+'NEM TALTAD EL'+'\n ')
 
 
 def difficulty():
@@ -40,7 +40,7 @@ def difficulty():
 
 # New Game, Difficulty, Quit, Score
 def menu():
-    menu=input('\n '+'MENÜ:'+'\n '+ '     New Game = N,n'+ '\n '+ '     Difficulty = D,d'+ '\n '+ '     Score = S,s'+ '\n '+ '     Quit = Q,q:'+ '\n ')
+    menu=input('MENÜ:'+'\n '+ '     New Game = N,n'+ '\n '+ '     Difficulty = D,d'+ '\n '+ '     Score = S,s'+ '\n '+ '     Quit = Q,q:'+ '\n ')
     if menu == 'N' or menu == 'n':
         jatek()
 
