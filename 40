@@ -6,7 +6,7 @@ print('LEÍRÁS: a játékban ki kell találnod hogy melyik számot dobta a gép
       'A Score menüben pedig megtudod nézni az eddig megnyert játékaid számát!' + '\n'
       'JÓ SZÓRAKOZÁST!')
 
-d=open('outfile','w')  # Hogyha nem úgy fejezi be a játékot hogy Quit-el kilép akkor is lenullázza az outfil-t
+d=open('outfile','w')  # Hogyha nem úgy fejezi be a játékot hogy nem Quit-el kilép akkor is lenullázza az outfil-t
 print(0,file=d)
 d.close()
 
