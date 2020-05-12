@@ -1,6 +1,6 @@
 def penz():
     szotar={'100':0,'50':0,'10':0,'5':0,'2':0,'1':0}
-    n=int(input('adja meg az egy pénzösszeget:'))
+    n=int(input('Adjon meg egy pénzösszeget:'))
     while n!=0:
         if n>=100:
             n=n-100
@@ -25,7 +25,7 @@ def penz():
             print('{} db {} Ft'.format(szotar[i],i))
 
 def hanyszor_fut():
-    db = int(input("adj meg hány pénzösszegre szeretné futtatni a programot:"))
+    db = int(input("Adj meg hány pénzösszegre szeretné futtatni a programot:"))
     while db!=0:
         penz()
         db-=1
