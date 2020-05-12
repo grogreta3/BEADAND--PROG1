@@ -6,6 +6,10 @@ print('LEÍRÁS: a játékban ki kell találnod hogy melyik számot dobta a gép
       'A Score menüben pedig megtudod nézni az eddig megnyert játékaid számát!' + '\n'
       'JÓ SZÓRAKOZÁST!')
 
+d=open('outfile','w')  # Hogyha nem úgy fejezi be a játékot hogy Quit-el kilép akkor is lenullázza az outfil-t
+print(0,file=d)
+d.close()
+
 def jatek(szam=10):
     try:
         k=int(idx)
@@ -30,7 +34,7 @@ def jatek(szam=10):
                 b = True
                 d.close()
         if b == False and szam ==1:
-            print ('\n '+'NEM TALTAD EL')
+            print ('\n '+'NEM TALTAD EL!!! A szám a(z)'+ str(szam) +' volt')
     except ValueError:
         print("Nem számot adtál meg!!")
 
