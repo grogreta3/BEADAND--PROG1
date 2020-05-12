@@ -1,33 +1,40 @@
 import numpy as np
 
 idx=0
+print('LEÍRÁS: a játékban ki kell találnod hogy melyik számot dobta a gép!' +'\n'
+      'Alapból 10 lehetőséged van eltalálni a számot' + '\n'
+      'A Score menüben pedig megtudod nézni az eddig megnyert játékaid számát!' + '\n'
+      'JÓ SZÓRAKOZÁST!')
 
 def jatek(szam=10):
-    k=int(idx)
-    a=np.random.randint(1,101,1)
-    #print(a)
-    b = False
-    tipp=int(input('Add meg a tipped:'))
-    while szam != 1 and b != True:
-        if tipp>a:
-            print('A szám kisebb a tippnél')
-            tipp = int(input('\n '+'Add meg a tipped:'))
-            szam-=1
-        elif tipp<a:
-            print('a szám nagyobb a tippnél')
-            tipp = int(input('\n'+'Add meg a tipped:'))
-            szam-=1
-        elif tipp == a:
-            print('\n '+"ELTALÁLTAD"+'\n ')
-            d=open('outfile','w')
-            k+=1
-            print(k,file=d)
-            b = True
-            d.close()
-    if b == False and szam ==1:
-        print ('\n '+'NEM TALTAD EL'+'\n ')
+    try:
+        k=int(idx)
+        a=np.random.randint(1,101,1)
+        #print(a)
+        b = False
+        tipp=int(input('Add meg a tipped:'))
+        while szam != 1 and b != True:
+            if tipp>a:
+                print('A szám kisebb a tippnél')
+                tipp = int(input('Add meg a tipped:'))
+                szam-=1
+            elif tipp<a:
+                print('a szám nagyobb a tippnél')
+                tipp = int(input('Add meg a tipped:'))
+                szam-=1
+            elif tipp == a:
+                print('\n '+"ELTALÁLTAD")
+                d=open('outfile','w')
+                k+=1
+                print(k,file=d)
+                b = True
+                d.close()
+        if b == False and szam ==1:
+            print ('\n '+'NEM TALTAD EL')
+    except ValueError:
+        print("Nem számot adtál meg!!")
 
-
+        
 def difficulty():
     a=input('Add meg a jatek nehezseget'+ '\n '+'   Easy=E (10 lehetőség)'+ '\n' + '    Medium=M (8 lehetőség)' + '\n' + '    Hard=H (5 lehetőség) :'+ '\n ')
     if a =='E' or a == 'e':
@@ -40,7 +47,8 @@ def difficulty():
 
 # New Game, Difficulty, Quit, Score
 def menu():
-    menu=input('MENÜ:'+'\n '+ '     New Game = N,n'+ '\n '+ '     Difficulty = D,d'+ '\n '+ '     Score = S,s'+ '\n '+ '     Quit = Q,q:'+ '\n ')
+    li=['N','n','Q','q','D','d','S','s']
+    menu=input('\n '+'MENÜ:'+'\n '+ '     New Game = N,n'+ '\n '+ '     Difficulty = D,d'+ '\n '+ '     Score = S,s'+ '\n '+ '     Quit = Q,q:'+ '\n ')
     if menu == 'N' or menu == 'n':
         jatek()
 
@@ -60,6 +68,9 @@ def menu():
         for i in d:
             print('\n '+'Eddig megnyert játszmáid száma: '+ i)
         d.close()
+
+    if menu not in li:
+        print('Nem jo értéket adtal meg!!')
 
 
 while True:
